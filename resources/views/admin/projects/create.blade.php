@@ -32,6 +32,16 @@
                             <input type="file" name="image" id="image" class="form-control form-control-sm">
                         </div>
                         <div class="col-12 mb-3">
+                            <label class="control-lable">Tipologia Progetto</label>
+                            <select name="type_id" id="" class="form-select form-select-sm" required>
+                                <option value="">--Seleziona tipologia--</option>
+                                @foreach ($types as $type)
+                                    <option value="{{ $type->id }}" @selected($type->id == old('type_id'))>{{ $type->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-12 mb-3">
                             <label class="control-lable">Sommario Progetto</label>
                             <textarea name="summary" id="" cols="30" rows="10" class="form-control form-control-sm">{{ old('summary') }}</textarea>
                         </div>
